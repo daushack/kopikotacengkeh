@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOCE | Modern Coffee Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-up { animation: fadeInUp 0.8s ease-out forwards; }
+        
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: #92400e;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* Hide scrollbar for clean look */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f5f5f4; }
+        ::-webkit-scrollbar-thumb { background: #d6d3d1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #a8a29e; }
+    </style>
+</head>
+<body class="bg-[#fafaf9] text-stone-900 selection:bg-amber-200 selection:text-amber-900">
+
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex justify-between items-center glass rounded-2xl px-6 py-4 shadow-sm">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-amber-900 rounded-xl flex items-center justify-center">
+                        <span class="text-white font-bold text-xl">K</span>
+                    </div>
+                    <span class="text-2xl font-serif font-bold tracking-tighter text-amber-900">KOCE.</span>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-10 text-sm font-semibold uppercase tracking-widest">
+                    <a href="#home" class="nav-link text-stone-600 hover:text-amber-900 transition">Home</a>
+                    <a href="#menu" class="nav-link text-stone-600 hover:text-amber-900 transition">Menu</a>
+                    <a href="#vibe" class="nav-link text-stone-600 hover:text-amber-900 transition">Vibe</a>
+                    <a href="#contact" class="bg-amber-900 text-white px-6 py-2.5 rounded-full hover:bg-amber-800 transition shadow-lg shadow-amber-900/20">Pesan Sekarang</a>
+                </div>
+
+                <button id="mobile-btn" class="md:hidden p-2 text-amber-900">
+                    <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8h16M4 16h16"/></svg>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-24 left-6 right-6 glass rounded-2xl p-6 shadow-2xl flex flex-col space-y-4 md:hidden">
+            <a href="#home" class="text-lg font-semibold text-stone-800 border-b border-stone-200 pb-2">Home</a>
+            <a href="#menu" class="text-lg font-semibold text-stone-800 border-b border-stone-200 pb-2">Menu</a>
+            <a href="#vibe" class="text-lg font-semibold text-stone-800 border-b border-stone-200 pb-2">Vibe</a>
+            <a href="#contact" class="text-lg font-semibold text-amber-900">Kontak Kami</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-gradient h-screen min-h-[700px] flex items-center relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 w-full pt-20">
+            <div class="max-w-3xl space-y-8 animate-up">
+                <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full border border-white/20">
+                    <span class="flex h-2 w-2 rounded-full bg-amber-500 animate-ping"></span>
+                    <span class="text-white text-xs font-bold tracking-[0.2em] uppercase">Buka Sekarang: 08:00 - 22:00</span>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-serif text-white leading-[1.1] font-bold">
+                    Kopi <span class="italic text-amber-400">Cerdas,</span><br>Energi Berkelas.
+                </h1>
+                <p class="text-lg md:text-xl text-stone-200 font-light max-w-xl leading-relaxed">
+                    Lebih dari sekadar kafein, KOCE adalah ruang bagi ide-ide besar dan pertemuan hangat yang tak terlupakan.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5 pt-4">
+                    <a href="#menu" class="group bg-white text-stone-900 px-10 py-5 rounded-2xl font-bold transition-all hover:bg-amber-500 hover:text-white shadow-2xl flex items-center justify-center space-x-3">
+                        <span>Lihat Menu</span>
+                        <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+                    </a>
+                    <a href="#vibe" class="bg-white/10 backdrop-blur-md text-white border border-white/30 px-10 py-5 rounded-2xl font-bold transition hover:bg-white/20 flex items-center justify-center">
+                        Explore Vibe
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center space-y-2 opacity-50">
+            <span class="text-white text-[10px] tracking-[0.3em] uppercase">Scroll</span>
+            <div class="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
+        </div>
+    </section>
+
+    <section class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="space-y-4 p-8 rounded-3xl bg-stone-50 border border-stone-100 hover:shadow-xl transition-shadow">
+                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-900 mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 15.546c-.523 0-1.046.151-1.5.454a2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.704 2.704 0 00-3 0 2.704 2.704 0 01-3 0 2.701 2.701 0 00-1.5-.454M9 6v2m3-2v2m3-2v2M9 3h6.333c.601 0 1.103.406 1.243.921l.658 2.423a1.1 1.1 0 01-1.054 1.39H7.82a1.1 1.1 0 01-1.054-1.39l.658-2.423C7.564 3.406 8.065 3 8.666 3H9z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold">Premium Beans</h3>
+                    <p class="text-stone-500 leading-relaxed">Hanya menggunakan biji kopi Arabika pilihan yang dipanggang secara presisi oleh roaster lokal terbaik.</p>
+                </div>
+                <div class="space-y-4 p-8 rounded-3xl bg-amber-900 text-white shadow-2xl shadow-amber-900/30">
+                    <div class="w-14 h-14 bg-amber-800 rounded-2xl flex items-center justify-center text-amber-400 mb-6 border border-amber-700">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold">Smart Workspace</h3>
+                    <p class="text-amber-100/70 leading-relaxed">Area didesain untuk kenyamanan kerja maksimal dengan high-speed WiFi dan stopkontak yang melimpah.</p>
+                </div>
+                <div class="space-y-4 p-8 rounded-3xl bg-stone-50 border border-stone-100 hover:shadow-xl transition-shadow">
+                    <div class="w-14 h-14 bg-amber-100 rounded-2xl flex items-center justify-center text-amber-900 mb-6">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold">Local Community</h3>
+                    <p class="text-stone-500 leading-relaxed">Bukan sekadar tempat ngopi, tapi titik temu komunitas kreatif dan profesional muda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="py-24 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+                <div>
+                    <h2 class="text-sm font-bold tracking-[0.3em] text-amber-800 uppercase mb-4">Our Specialities</h2>
+                    <h3 class="text-4xl md:text-5xl font-serif font-bold text-stone-900 leading-tight">Kurasi Menu KOCE</h3>
+                </div>
+                <div class="flex space-x-2">
+                    <button class="px-6 py-2 rounded-full bg-amber-900 text-white text-sm font-bold transition">All</button>
+                    <button class="px-6 py-2 rounded-full bg-white text-stone-600 text-sm font-bold border border-stone-200 hover:border-amber-800 transition">Coffee</button>
+                    <button class="px-6 py-2 rounded-full bg-white text-stone-600 text-sm font-bold border border-stone-200 hover:border-amber-800 transition">Signature</button>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Item 1 -->
+                <div class="group bg-white p-4 rounded-[2rem] shadow-sm hover:shadow-2xl transition duration-500">
+                    <div class="relative h-[400px] overflow-hidden rounded-[1.5rem]">
+                        <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?auto=format&fit=crop&w=800&q=80" alt="Latte Art" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full font-bold text-amber-900 shadow-xl">
+                            Rp 28.000
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-serif font-bold text-stone-900 mb-2">Vanilla KOCE Latte</h4>
+                        <p class="text-stone-500 text-sm leading-relaxed mb-6 italic">Signature espresso blend dengan sentuhan vanilla madagaskar yang lembut.</p>
+                        <button class="w-full py-4 border-2 border-amber-900/10 rounded-2xl font-bold text-amber-900 hover:bg-amber-900 hover:text-white transition">Tambah Pesanan</button>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="group bg-white p-4 rounded-[2rem] shadow-sm hover:shadow-2xl transition duration-500">
+                    <div class="relative h-[400px] overflow-hidden rounded-[1.5rem]">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Cold Brew" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full font-bold text-amber-900 shadow-xl">
+                            Rp 32.000
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-serif font-bold text-stone-900 mb-2">Midnight Cold Brew</h4>
+                        <p class="text-stone-500 text-sm leading-relaxed mb-6 italic">Ekstraksi 12 jam untuk cita rasa yang ultra-smooth dan menyegarkan tubuh.</p>
+                        <button class="w-full py-4 border-2 border-amber-900/10 rounded-2xl font-bold text-amber-900 hover:bg-amber-900 hover:text-white transition">Tambah Pesanan</button>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="group bg-white p-4 rounded-[2rem] shadow-sm hover:shadow-2xl transition duration-500">
+                    <div class="relative h-[400px] overflow-hidden rounded-[1.5rem]">
+                        <img src="https://images.unsplash.com/photo-1550617931-e17a7b70dce2?auto=format&fit=crop&w=800&q=80" alt="Signature" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/0 transition duration-500"></div>
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-4 py-2 rounded-full font-bold text-amber-900 shadow-xl">
+                            Rp 35.000
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h4 class="text-2xl font-serif font-bold text-stone-900 mb-2">KOCE Cloud Signature</h4>
+                        <p class="text-stone-500 text-sm leading-relaxed mb-6 italic">Perpaduan kopi lokal dengan foam rahasia yang ringan seperti awan.</p>
+                        <button class="w-full py-4 border-2 border-amber-900/10 rounded-2xl font-bold text-amber-900 hover:bg-amber-900 hover:text-white transition">Tambah Pesanan</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="vibe" class="py-24 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
+                <div class="relative">
+                    <div class="relative z-10 grid grid-cols-2 gap-4">
+                        <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=600&q=80" alt="Coffee Vibe" class="w-full h-64 object-cover rounded-3xl shadow-xl hover:-translate-y-2 transition duration-500">
+                        <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=600&q=80" alt="Working Vibe" class="w-full h-80 object-cover rounded-3xl shadow-xl mt-12 hover:-translate-y-2 transition duration-500">
+                    </div>
+                    <!-- Decorative element -->
+                    <div class="absolute -top-10 -left-10 w-40 h-40 bg-amber-100 rounded-full blur-3xl opacity-50 -z-0"></div>
+                    <div class="absolute -bottom-10 -right-10 w-60 h-60 bg-stone-100 rounded-full blur-3xl opacity-50 -z-0"></div>
+                </div>
+                
+                <div class="space-y-8">
+                    <h2 class="text-sm font-bold tracking-[0.3em] text-amber-800 uppercase">The Vibe</h2>
+                    <h3 class="text-4xl md:text-5xl font-serif font-bold text-stone-900 leading-tight">Rumah Kedua Bagi Kreativitas Anda.</h3>
+                    <p class="text-lg text-stone-500 leading-relaxed">
+                        Kami merancang setiap sudut KOCE dengan pencahayaan alami, material kayu hangat, dan playlist yang tenang untuk memastikan fokus Anda tetap terjaga atau percakapan Anda tetap intim.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div class="border-l-4 border-amber-900 pl-6 py-2">
+                            <span class="block text-3xl font-bold text-stone-900">100+</span>
+                            <span class="text-stone-400 text-sm uppercase font-bold tracking-widest">Kunjungan Harian</span>
+                        </div>
+                        <div class="border-l-4 border-amber-900 pl-6 py-2">
+                            <span class="block text-3xl font-bold text-stone-900">4.9/5</span>
+                            <span class="text-stone-400 text-sm uppercase font-bold tracking-widest">Customer Rating</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-stone-900 text-white rounded-t-[4rem] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                <div class="space-y-12">
+                    <div class="space-y-6">
+                        <h2 class="text-5xl font-serif font-bold">Kunjungi Kami.</h2>
+                        <p class="text-stone-400 text-lg max-w-md">Rasakan langsung atmosfer KOCE di Jakarta Selatan. Kami menanti kehadiran Anda.</p>
+                    </div>
+
+                    <div class="space-y-8">
+                        <div class="flex items-center space-x-6 group">
+                            <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:bg-amber-800 transition duration-500">
+                                <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-stone-400 text-xs uppercase font-bold tracking-widest mb-1">Lokasi Utama</h4>
+                                <p class="text-lg font-semibold">Jl. Senopati No. 45, Kebayoran Baru, Jakarta Selatan</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-6 group">
+                            <div class="w-14 h-14 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 group-hover:bg-amber-800 transition duration-500">
+                                <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="text-stone-400 text-xs uppercase font-bold tracking-widest mb-1">Operasional</h4>
+                                <p class="text-lg font-semibold">Setiap Hari: 08:00 — 22:00 WIB</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-amber-800 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center hover:bg-amber-800 transition">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="glass !bg-white/5 border-white/10 p-10 rounded-[3rem] relative">
+                    <form id="contactForm" class="space-y-6">
+                        <div class="grid grid-cols-2 gap-6">
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold tracking-widest uppercase text-stone-400">Nama</label>
+                                <input type="text" required class="w-full bg-white/5 border-b border-white/20 focus:border-amber-400 outline-none py-3 transition text-white placeholder-stone-600" placeholder="Ahmad">
+                            </div>
+                            <div class="space-y-2">
+                                <label class="text-xs font-bold tracking-widest uppercase text-stone-400">Email</label>
+                                <input type="email" required class="w-full bg-white/5 border-b border-white/20 focus:border-amber-400 outline-none py-3 transition text-white placeholder-stone-600" placeholder="ahmad@email.com">
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-xs font-bold tracking-widest uppercase text-stone-400">Pesan</label>
+                            <textarea rows="4" required class="w-full bg-white/5 border-b border-white/20 focus:border-amber-400 outline-none py-3 transition text-white placeholder-stone-600" placeholder="Tuliskan pesan Anda..."></textarea>
+                        </div>
+                        <button type="button" onclick="handleSubmit()" class="w-full bg-amber-800 hover:bg-amber-700 text-white font-bold py-5 rounded-2xl transition shadow-xl shadow-black/20 flex items-center justify-center space-x-3 group">
+                            <span>Kirim Sekarang</span>
+                            <svg class="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                        </button>
+                    </form>
+                    
+                    <div id="successMsg" class="hidden absolute inset-0 flex flex-col items-center justify-center bg-stone-900 rounded-[3rem] p-10 text-center animate-fade-in">
+                        <div class="w-20 h-20 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mb-6">
+                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                        </div>
+                        <h4 class="text-3xl font-serif font-bold mb-2">Terkirim!</h4>
+                        <p class="text-stone-400">Terima kasih atas pesan Anda. Kami akan segera menghubungi kembali.</p>
+                        <button onclick="location.reload()" class="mt-8 text-amber-400 font-bold underline">Kirim Pesan Lain</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-24 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8 text-stone-500 text-sm tracking-wide uppercase font-bold">
+                <p>&copy; 2024 KOCE. All rights reserved.</p>
+                <div class="flex space-x-8">
+                    <a href="#" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Background Circle -->
+        <div class="absolute -top-40 -right-40 w-[600px] h-[600px] bg-amber-900/20 rounded-full blur-[120px]"></div>
+    </section>
+
+    <script>
+        // Navbar Scroll Logic
+        const nav = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                nav.classList.remove('py-6');
+                nav.classList.add('py-2');
+            } else {
+                nav.classList.add('py-6');
+                nav.classList.remove('py-2');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileBtn = document.getElementById('mobile-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submission Interaction
+        function handleSubmit() {
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('successMsg');
+            
+            // Basic UI switch with fade effect
+            form.style.opacity = '0';
+            setTimeout(() => {
+                form.classList.add('hidden');
+                success.classList.remove('hidden');
+            }, 300);
+        }
+
+        // Smooth reveal on scroll using simple observer
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-up');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('opacity-0');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
